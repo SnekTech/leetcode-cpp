@@ -5,7 +5,7 @@
 #ifndef LEETCODE_CPP_Q206_H
 #define LEETCODE_CPP_Q206_H
 
-#include "ListNode.h"
+#include "Common.h"
 
 class Solution {
 public:

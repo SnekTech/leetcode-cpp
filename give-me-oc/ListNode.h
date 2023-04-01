@@ -2,8 +2,8 @@
 // Created by syf on 2023/3/15.
 //
 
-#ifndef LEETCODE_CPP_LISTNODE_H
-#define LEETCODE_CPP_LISTNODE_H
+#ifndef LEETCODE_CPP_COMMON_H
+#define LEETCODE_CPP_COMMON_H
 
 struct ListNode {
     int val;
@@ -11,4 +11,4 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
 };
 
-#endif //LEETCODE_CPP_LISTNODE_H
+#endif //LEETCODE_CPP_COMMON_H
