@@ -14,9 +14,18 @@ class Solution
 public:
     unordered_map<int, int> memo;
     int integerBreak(int n) {
-        memo[1] = 1;
+        vector<int> dp(n + 1, -1);
+        dp[1] = 1;
 
-        return breakInt(n);
+        for (int i = 2; i <= n; i++)
+        {
+            for (int j = 1; j < i; j++)
+            {
+                dp[i] = max3(dp[i], j * (i - j), j * dp[i - j]);
+            }
+        }
+
+        return dp[n];
     }
 
     int breakInt(int x)
