@@ -5,6 +5,9 @@
 #ifndef LEETCODE_CPP_COMMON_H
 #define LEETCODE_CPP_COMMON_H
 
+#include <iostream>
+#include <vector>
+
 struct ListNode
 {
     int val;
@@ -38,5 +41,18 @@ struct TreeNode
     {
     }
 };
+
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const std::vector<T>& v)
+{
+    os << "[ ";
+    for (const auto& elem : v)
+    {
+        os << elem << " ";
+    }
+    os << "]";
+
+    return os;
+}
 
 #endif //LEETCODE_CPP_COMMON_H

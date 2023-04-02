@@ -1,5 +1,5 @@
 #include <iostream>
-#include "codetop/q46.h"
+#include "codetop/q47.h"
 
 using namespace std;
 
@@ -14,8 +14,8 @@ int main()
     std::cout << "Hello, World!" << std::endl;
 
     Solution s;
-    vector<int> v = { 1, 2, 3 };
-    s.permute(v);
+    vector<int> v = { 1, 1, 2 };
+    s.permuteUnique(v);
 
     return 0;
 }
