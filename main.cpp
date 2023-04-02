@@ -1,5 +1,5 @@
 #include <iostream>
-#include "codetop/q93.h"
+#include "codetop/q131.h"
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int main()
     std::cout << "Hello, World!" << std::endl;
 
     Solution s;
-    s.restoreIpAddresses("25525511135");
+    s.partition("aab");
 
     return 0;
 }
