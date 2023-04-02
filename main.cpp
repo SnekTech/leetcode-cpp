@@ -1,5 +1,5 @@
 #include <iostream>
-#include "codetop/q131.h"
+#include "codetop/q46.h"
 
 using namespace std;
 
@@ -14,7 +14,8 @@ int main()
     std::cout << "Hello, World!" << std::endl;
 
     Solution s;
-    s.partition("aab");
+    vector<int> v = { 1, 2, 3 };
+    s.permute(v);
 
     return 0;
 }
