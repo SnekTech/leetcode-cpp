@@ -1,5 +1,5 @@
 #include <iostream>
-#include "codetop/q47.h"
+#include "codetop/q216.h"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main()
 
     Solution s;
     vector<int> v = { 1, 1, 2 };
-    s.permuteUnique(v);
+    s.combinationSum3(9, 45);
 
     return 0;
 }
