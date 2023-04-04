@@ -1,5 +1,5 @@
 #include <iostream>
-#include "codetop/q216.h"
+#include "codetop/q130.h"
 
 using namespace std;
 
@@ -14,8 +14,12 @@ int main()
     std::cout << "Hello, World!" << std::endl;
 
     Solution s;
-    vector<int> v = { 1, 1, 2 };
-    s.combinationSum3(9, 45);
+    vector<vector<char>> board = {
+        {'O', 'O', 'O'},
+        {'O', 'O', 'O'},
+        {'O', 'O', 'O'},
+    };
+    s.solve(board);
 
     return 0;
 }
