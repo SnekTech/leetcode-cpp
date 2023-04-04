@@ -1,5 +1,5 @@
 #include <iostream>
-#include "codetop/q130.h"
+#include "codetop/q417.h"
 
 using namespace std;
 
@@ -14,12 +14,10 @@ int main()
     std::cout << "Hello, World!" << std::endl;
 
     Solution s;
-    vector<vector<char>> board = {
-        {'O', 'O', 'O'},
-        {'O', 'O', 'O'},
-        {'O', 'O', 'O'},
+    vector<vector<int>> heights = {
+        {1},
     };
-    s.solve(board);
+    auto result = s.pacificAtlantic(heights);
 
     return 0;
 }
