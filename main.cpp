@@ -1,5 +1,5 @@
 #include <iostream>
-#include "codetop/q417.h"
+#include "codetop/q416.h"
 
 using namespace std;
 
@@ -14,10 +14,8 @@ int main()
     std::cout << "Hello, World!" << std::endl;
 
     Solution s;
-    vector<vector<int>> heights = {
-        {1},
-    };
-    auto result = s.pacificAtlantic(heights);
+    vector<int> nums = {1, 5, 11,5};
+    bool result = s.canPartition(nums);
 
     return 0;
 }

@@ -8,38 +8,36 @@
 
 using namespace std;
 
-class Solution {
-private:
-    vector<vector<int>> memo;
-    bool canPartition(vector<int>& nums, int index, int target)
-    {
-        if (target == 0)
-            return true;
-        if (index < 0 || target < 0)
-            return false;
-
-        if (memo[index][target] != -1)
-            return memo[index][target];
-
-        bool can = canPartition(nums, index - 1, target) ||
-            canPartition(nums, index - 1, target - nums[index]);
-
-        memo[index][target] = can;
-        return can;
-    }
+class Solution
+{
 public:
-    bool canPartition(vector<int>& nums) {
+    bool canPartition(vector<int>& nums)
+    {
         int sum = 0;
-        for (auto x : nums)
+        for (auto x: nums)
             sum += x;
 
         if (sum % 2 != 0)
             return false;
 
         int n = nums.size();
-        for (int i = 0; i < n; i++)
-            memo.push_back(vector<int>(sum / 2 + 1, -1));
+        int target = sum / 2;
 
-        return canPartition(nums, nums.size() - 1, sum / 2);
+        vector<vector<bool>> dp(n, vector<bool>(target + 1, false));
+        for (int i = 0; i < n; i++)
+            dp[i][0] = true;
+        for (int j = 1; j <= target; j++)
+            dp[0][j] = nums[0] == target;
+
+        for (int i = 1; i < n; i++)
+            for (int j = 1; j <= target; j++)
+            {
+                if (j >= nums[i])
+                    dp[i][j] = dp[i - 1][j] | dp[i - 1][j - nums[i]];
+                else
+                    dp[i][j] = dp[i - 1][j];
+            }
+
+        return dp[n - 1][target];
     }
 };
