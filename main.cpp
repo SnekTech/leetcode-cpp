@@ -1,5 +1,5 @@
 #include <iostream>
-#include "codetop/q518.h"
+#include "codetop/q377.h"
 
 using namespace std;
 
@@ -14,8 +14,8 @@ int main()
     std::cout << "Hello, World!" << std::endl;
 
     Solution s;
-    vector<int> coins = { 1, 2, 5};
-    s.change(5, coins);
+    vector<int> nums = { 1, 2, 3};
+    s.combinationSum4(nums, 4);
 
     return 0;
 }
