@@ -6,23 +6,39 @@
 #define LEETCODE_CPP_Q518_H
 
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
 class Solution {
 public:
+    vector<vector<int>> memo;
     int change(int amount, vector<int>& coins) {
-        vector<int> dp(amount + 1);
-        dp[0] = 1;
-        for (int coin : coins)
+        int n = coins.size();
+        memo.resize(n, vector<int>(amount + 1, -1));
+
+        int result = dfs(coins, n - 1, amount);
+        return result;
+    }
+
+    int dfs(vector<int>& coins, int i, int amount)
+    {
+        int coin = coins[i];
+        if (i == 0)
+            return amount % coin == 0 ? 1 : 0;
+        if (memo[i][amount] != -1)
+            return memo[i][amount];
+
+        int plans = 0;
+        for (int k = 0; k * coin <= amount; k++)
         {
-            for (int i = coin; i <= amount; i++)
-            {
-                dp[i] += dp[i - coin];
-            }
+            plans += dfs(coins, i - 1, amount - k * coin);
         }
 
-        return dp[amount];
+        memo[i][amount] = plans;
+
+        return plans;
     }
 };
+
 #endif //LEETCODE_CPP_Q518_H

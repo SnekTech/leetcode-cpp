@@ -1,5 +1,5 @@
 #include <iostream>
-#include "codetop/q416.h"
+#include "codetop/q518.h"
 
 using namespace std;
 
@@ -14,8 +14,8 @@ int main()
     std::cout << "Hello, World!" << std::endl;
 
     Solution s;
-    vector<int> nums = {1, 5, 11,5};
-    bool result = s.canPartition(nums);
+    vector<int> coins = { 1, 2, 5};
+    s.change(5, coins);
 
     return 0;
 }
