@@ -12,32 +12,19 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int>> memo;
     int change(int amount, vector<int>& coins) {
         int n = coins.size();
-        memo.resize(n, vector<int>(amount + 1, -1));
+        vector<vector<int>> dp(n, vector<int>(amount + 1, 0));
 
-        int result = dfs(coins, n - 1, amount);
-        return result;
-    }
+        for (int j = 0; j <= amount; j++)
+            dp[0][j] = j % coins[0] == 0 ? 1 : 0;
 
-    int dfs(vector<int>& coins, int i, int amount)
-    {
-        int coin = coins[i];
-        if (i == 0)
-            return amount % coin == 0 ? 1 : 0;
-        if (memo[i][amount] != -1)
-            return memo[i][amount];
+        for (int i = 1; i < n; i++)
+            for (int j = 0; j <= amount; j++)
+                for (int k = 0; k * coins[i] <= j; k++)
+                    dp[i][j] += dp[i - 1][j - k * coins[i]];
 
-        int plans = 0;
-        for (int k = 0; k * coin <= amount; k++)
-        {
-            plans += dfs(coins, i - 1, amount - k * coin);
-        }
-
-        memo[i][amount] = plans;
-
-        return plans;
+        return dp[n - 1][amount];
     }
 };
 
