@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <memory>
 
 struct ListNode
 {
@@ -19,6 +20,18 @@ struct ListNode
 
     ListNode(int x, ListNode* next) : val(x), next(next)
     {
+    }
+
+    static ListNode* From(std::vector<int> nums)
+    {
+        ListNode dummy(-1);
+        ListNode* prev = &dummy;
+        for (int x : nums)
+        {
+            prev->next = new ListNode(x);
+            prev = prev->next;
+        }
+        return dummy.next;
     }
 };
 
