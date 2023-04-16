@@ -15,7 +15,7 @@ int main()
 
     vector<int> arr = {5,1,2,3};
 
-    Snek::InsertionSort(arr);
+    Snek::MergeSort(arr);
 
     return 0;
 }

@@ -53,3 +53,58 @@ void Snek::InsertionSort(vector<int>& nums)
         nums[j] = toInsert;
     }
 }
+
+static void merge(vector<int>& nums, int left, int right)
+{
+    if (left >= right)
+        return;
+
+    int mid = left + (right - left) / 2;
+    merge(nums, left, mid);
+    merge(nums, mid + 1, right);
+    if (nums[mid] <= nums[mid + 1])
+        return;
+
+    int i = left;
+    int j = mid + 1;
+    int k = left;
+    const vector<int> temp(nums);
+
+    while (k <= right)
+    {
+        if (i > mid && j > right)
+            break;
+        if (i > mid)
+        {
+            nums[k] = temp[j];
+            j++;
+            k++;
+            continue;
+        }
+        if (j > right)
+        {
+            nums[k] = temp[i];
+            i++;
+            k++;
+            continue;
+        }
+
+        if (temp[i] <= temp[j])
+        {
+            nums[k] = temp[i];
+            i++;
+        }
+        else
+        {
+            nums[k] = temp[j];
+            j++;
+        }
+
+        k++;
+    }
+}
+
+void Snek::MergeSort(vector<int>& nums)
+{
+    merge(nums, 0, (int)nums.size() - 1);
+}
