@@ -9,6 +9,14 @@ using namespace Snek;
 
 void Snek::BubbleSort(vector<int>& nums)
 {
+    auto n = nums.size();
+
+    for (auto i = n - 1; i > 0; i--)
+        for (int j = 0; j < i; j++)
+        {
+            if (nums[j] > nums[j + 1])
+                swap(nums[j], nums[j + 1]);
+        }
 }
 
 void Snek::SelectionSort(vector<int>& nums)

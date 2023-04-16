@@ -1,5 +1,4 @@
 #include <iostream>
-#include "codetop/q25.h"
 #include "sorting/sort.h"
 
 using namespace Snek;
@@ -13,6 +12,10 @@ static void print(T arg)
 int main()
 {
     std::cout << "Hello, World!" << std::endl;
+
+    vector<int> arr = {5,1,2,3};
+
+    Snek::BubbleSort(arr);
 
     return 0;
 }
