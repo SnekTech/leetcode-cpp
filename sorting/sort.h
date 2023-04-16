@@ -14,5 +14,7 @@ namespace Snek
 
     void SelectionSort(vector<int>& nums);
 
+    void InsertionSort(vector<int>& nums);
+
     void MergeSort(vector<int>& nums);
 }

@@ -33,3 +33,25 @@ void Snek::SelectionSort(vector<int>& nums)
         swap(nums[i], nums[minIndex]);
     }
 }
+
+void Snek::InsertionSort(vector<int>& nums)
+{
+    auto n = nums.size();
+
+    for (int i = 1; i < n; i++)
+    {
+        // [0, i) is sorted, try to insert nums[i]
+        auto toInsert = nums[i];
+
+        for (int j = i; j > 0; j--)
+        {
+            if (nums[j - 1] > nums[j])
+                nums[j] = nums[j - 1];
+            else
+            {
+                nums[j] = toInsert;
+                break;
+            }
+        }
+    }
+}
