@@ -41,17 +41,15 @@ void Snek::InsertionSort(vector<int>& nums)
     for (int i = 1; i < n; i++)
     {
         // [0, i) is sorted, try to insert nums[i]
-        auto toInsert = nums[i];
+        const int toInsert = nums[i];
 
-        for (int j = i; j > 0; j--)
+        int j = i;
+
+        while (j > 0 && nums[j - 1] > toInsert)
         {
-            if (nums[j - 1] > nums[j])
-                nums[j] = nums[j - 1];
-            else
-            {
-                nums[j] = toInsert;
-                break;
-            }
+            nums[j] = nums[j - 1];
+            j--;
         }
+        nums[j] = toInsert;
     }
 }
